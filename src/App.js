@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import styled from 'styled-components'
+import logo from './images/logo.png'
+import theme from './theme.json'
 
-function App() {
+const AppWrapper = styled.div`
+  min-height: 100%;
+  background-color: ${theme.backgroundColor};
+`
+const LogoWrapper = styled.header`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 3rem;
+  @media screen and (max-width: 400px) {
+      & img { width: 50%; }
+  }
+`
+const MaxWidth = styled.div`
+  max-width: ${props => props.maxWidth || 1024}px;
+`
+
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppWrapper>
+      <MaxWidth maxWidth={1280}>
+        <LogoWrapper>
+          <img src={logo} />
+        </LogoWrapper>
+      </MaxWidth>
+    </AppWrapper>
+  )
 }
 
-export default App;
+export default App
