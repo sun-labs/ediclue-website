@@ -8,6 +8,8 @@ import ediJson from './assets/edi.json'
 
 import './transitions.css'
 
+const GIT_LINK = 'https://github.com/sun-labs/ediclue'
+
 const AppWrapper = styled.div`
   min-height: 100%;
   position: relative;
@@ -106,13 +108,28 @@ const Footer = styled.footer`
   margin: 2rem 0 5rem 0;
 `
 
-const WithLove = styled.span`
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  font-family: monospace;
-  color: ${theme.backgroundColor};
+const BoxedContent = styled.div`
+  display: inline-block;
   background-color: blue;
   box-shadow: 4px 4px 0px red;
+  padding: 0.5rem;
+  transition: box-shadow 0.25s ease-out;
+  &:hover {
+    box-shadow: 1px 1px 0px red;
+  }
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+`
+
+const BGColorText = styled.span`
+  font-size: 1.5rem;
+  color: ${theme.backgroundColor};
+  font-family: monospace;
 `
 
 const SideBar = styled.nav`
@@ -137,7 +154,7 @@ function App () {
       <MaxWidth maxWidth={1280} style={{ zIndex: 10, position: 'relative' }}>
         <SideBar style={{ fontFamily: 'monospace' }}>
           <ul>
-            <li><a href=''>source code</a></li>
+            <li><a href={GIT_LINK} target='_blank' rel='noopener noreferrer'>source code</a></li>
           </ul>
         </SideBar>
         <TransitionGroup appear>
@@ -162,6 +179,13 @@ This means companies are charging huge sums for their EDI platforms which is why
 No guarantees and use on your own risk, but we had it working for a about a year without any trouble communicating with electricity providers in the nordics.`}
             </Description>
           </DescriptionWrapper>
+          <Wrapper>
+            <CleanLink href={GIT_LINK} target='_blank' rel='noopener noreferrer'>
+              <BoxedContent>
+                <BGColorText>DOWNLOAD</BGColorText>
+              </BoxedContent>
+            </CleanLink>
+          </Wrapper>
           <Divider />
           <MaxWidth maxWidth={768}>
             <FatTitle>CONVERT</FatTitle>
@@ -184,7 +208,9 @@ No guarantees and use on your own risk, but we had it working for a about a year
           </MaxWidth>
           <Footer>
             <CleanLink href='https://sunlabs.se' target='_blank' rel='noopener noreferrer'>
-              <WithLove>{'With <3 From Uppsala'}</WithLove>
+              <BoxedContent>
+                <BGColorText>{'With <3 From Uppsala'}</BGColorText>
+              </BoxedContent>
             </CleanLink>
           </Footer>
         </TransitionGroup>
