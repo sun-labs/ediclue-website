@@ -82,6 +82,15 @@ const DecoLines = styled.div`
   background-repeat: repeat-x;
   background-position: ${props => props.flipped ? 'left bottom' : 'right top'};
   z-index: 0;
+  animation: travel 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  @keyframes travel {
+    from { background-position-x: ${props => props.flipped ? 'left' : 'right'}; }
+    to { background-position-x: ${props => props.flipped ? 'right' : 'left'} }
+
+  }
 `
 
 const MaxWidth = styled.div`
@@ -109,6 +118,7 @@ const WithLove = styled.span`
 const SideBar = styled.nav`
   position: absolute;
   top: 1rem;
+  font-size: 1.5rem;
   right: 1rem;
   & ul {
     list-style-type: none;
@@ -125,7 +135,7 @@ function App () {
       <DecoLines />
       <DecoLines style={{ bottom: '0px', right: '0px' }} flipped />
       <MaxWidth maxWidth={1280} style={{ zIndex: 10, position: 'relative' }}>
-        <SideBar>
+        <SideBar style={{ fontFamily: 'monospace' }}>
           <ul>
             <li><a href=''>source code</a></li>
           </ul>
@@ -145,9 +155,11 @@ function App () {
           </DescriptionWrapper>
           <DescriptionWrapper>
             <Description>
-              {`EDIFact was developed like a million years ago and it is still used for infrastructure related communication.
-This means companies are charging huge sums for their EDI platforms which is why we made Ediclue, the free alternative that works with regular e-mail.
-We made a tool for it and atm it’s collecting dust. No guarantees and not verified, but we had it working for a about a year without any trouble communicating with electricity providers in the nordics.`}
+              {`EDIFact was developed like a million years ago and it is still used for infrastructure related communication and there's not a lot of open source software out there.
+
+This means companies are charging huge sums for their EDI platforms which is why we made Ediclue, the free open source alternative that works with regular e-mail.
+
+No guarantees and use on your own risk, but we had it working for a about a year without any trouble communicating with electricity providers in the nordics.`}
             </Description>
           </DescriptionWrapper>
           <Divider />
