@@ -1,0 +1,11 @@
+{
+    "tag": "UNH",
+    "message_reference_number": "66025",
+    "message_identifier": {
+        "message_type_identifier": "DESADV",
+        "message_type_version_number": "D",
+        "message_type_release_number": "96A",
+        "controlling_agency": "UN",
+        "association_assigned_code": "EAN005"
+    }
+}
