@@ -1,0 +1,25 @@
+.boing-enter {
+    transform: scale(0);
+}
+
+.boing-enter-active {
+    transform: scale(1.0);
+    transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.boing-appear {
+    transform: scale(0);
+}
+
+.boing-appear-active {
+    transform: scale(1.0);
+    transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.boing-exit {
+    transform: scale(1.0);
+}
+
+.boing-exit-active {
+    transform: scale(0.0);
+    transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
