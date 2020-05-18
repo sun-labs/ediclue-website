@@ -19,6 +19,28 @@ const LogoWrapper = styled.header`
       & img { width: 50%; }
   }
 `
+
+const DescriptionWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+`
+
+const Description = styled.span`
+  text-align: center;
+  font-family: serif;
+  font-size: 1.25rem;
+  line-height: 200%;
+  white-space: pre-wrap;
+  max-width: 512px;
+  padding: 1rem;
+`
+
+const Divider = styled.hr`
+
+  border-style: solid;
+  border-color: white;
+`
+
 const MaxWidth = styled.div`
   max-width: ${props => props.maxWidth || 1024}px;
   position: relative;
@@ -47,6 +69,16 @@ function App () {
               <img src={logo} />
             </LogoWrapper>
           </CSSTransition>
+          <DescriptionWrapper style={{ paddingTop: '1rem' }}>
+            <Description>Convert EDI to JSON without having to sell your first born.</Description>
+          </DescriptionWrapper>
+          <DescriptionWrapper>
+            <Description>
+            EDIFact was developed like a hundred years ago and is still used for infrastructure related communication.
+            We made a tool for it and atm it’s collecting dust. No guarantees and not verified, but we had it working for a about a year without any trouble communicating with electricity providers in the nordics.
+            </Description>
+          </DescriptionWrapper>
+          <Divider />
         </TransitionGroup>
       </MaxWidth>
     </AppWrapper>
