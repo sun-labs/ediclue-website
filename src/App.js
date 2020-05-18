@@ -10,8 +10,14 @@ import './transitions.css'
 
 const AppWrapper = styled.div`
   min-height: 100%;
+  position: relative;
   background-color: ${theme.backgroundColor};
 `
+
+const CleanLink = styled.a`
+  text-decoration: none;
+`
+
 const LogoWrapper = styled.header`
   display: flex;
   flex-direction: row;
@@ -68,9 +74,18 @@ const Divider = styled.hr`
   border-color: white;
 `
 
+const DecoLines = styled.div`
+  background-image: url('${props => props.flipped ? './images/lines-a.png' : './images/lines-b.png'}');
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-repeat: repeat-x;
+  background-position: ${props => props.flipped ? 'left bottom' : 'right top'};
+  z-index: 0;
+`
+
 const MaxWidth = styled.div`
   max-width: ${props => props.maxWidth || 1024}px;
-  position: relative;
   padding: 1rem;
   box-sizing: border-box;
   margin: 0 auto;
@@ -78,6 +93,7 @@ const MaxWidth = styled.div`
 
 const Footer = styled.footer`
   text-align: center;
+  padding: 5rem 0;
   margin: 2rem 0 5rem 0;
 `
 
@@ -92,12 +108,23 @@ const WithLove = styled.span`
 
 const SideBar = styled.nav`
   position: absolute;
+  top: 1rem;
+  right: 1rem;
+  & ul {
+    list-style-type: none;
+  }
+  @media screen and (max-width: 480px) {
+    position: relative;
+    text-align: center;
+  }
 `
 
 function App () {
   return (
     <AppWrapper>
-      <MaxWidth maxWidth={1280}>
+      <DecoLines />
+      <DecoLines style={{ bottom: '0px', right: '0px' }} flipped />
+      <MaxWidth maxWidth={1280} style={{ zIndex: 10, position: 'relative' }}>
         <SideBar>
           <ul>
             <li><a href=''>source code</a></li>
@@ -144,9 +171,9 @@ We made a tool for it and atm it’s collecting dust. No guarantees and not veri
             </List>
           </MaxWidth>
           <Footer>
-            <a href='https://sunlabs.se' target='_blank' rel='noopener noreferrer'>
+            <CleanLink href='https://sunlabs.se' target='_blank' rel='noopener noreferrer'>
               <WithLove>{'With <3 From Uppsala'}</WithLove>
-            </a>
+            </CleanLink>
           </Footer>
         </TransitionGroup>
       </MaxWidth>
