@@ -17,8 +17,15 @@ const LogoWrapper = styled.header`
   flex-direction: row;
   justify-content: center;
   padding-top: 3rem;
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 480px) {
       & img { width: 75%; }
+  }
+`
+
+const List = styled.ul`
+  padding: 0;
+  & > li {
+    margin-bottom: 1rem;
   }
 `
 
@@ -30,9 +37,12 @@ const DescriptionWrapper = styled.section`
 const MonoText = styled.span`
   white-space: pre-wrap;
   padding: 1rem 0 2rem 0;
-  font-size: 1.75rem;
+  font-size: ${props => props.small ? '1.25rem' : '1.75rem'};
   font-family: 'Fira Code', 'Fira', monospace;
   word-break: break-all;
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
 `
 
 const Description = styled.span`
@@ -108,8 +118,9 @@ function App () {
           </DescriptionWrapper>
           <DescriptionWrapper>
             <Description>
-            EDIFact was developed like a hundred years ago and is still used for infrastructure related communication.
-            We made a tool for it and atm it’s collecting dust. No guarantees and not verified, but we had it working for a about a year without any trouble communicating with electricity providers in the nordics.
+              {`EDIFact was developed like a million years ago and it is still used for infrastructure related communication.
+This means companies are charging huge sums for their EDI platforms which is why we made Ediclue, the free alternative that works with regular e-mail.
+We made a tool for it and atm it’s collecting dust. No guarantees and not verified, but we had it working for a about a year without any trouble communicating with electricity providers in the nordics.`}
             </Description>
           </DescriptionWrapper>
           <Divider />
@@ -120,16 +131,22 @@ function App () {
             <MonoText>{JSON.stringify(ediJson, null, 2)}</MonoText>
           </MaxWidth>
           <Divider />
-          <MaxWidth maxWidth={768}>
-            <ul>
-              <li><MonoText>generates APERAK from EDI messages</MonoText></li>
-              <li><MonoText>Mail (SMTP & IMAP communication)</MonoText></li>
-              <li><MonoText>Developed for EDIEL</MonoText></li>
-              <li><MonoText>python 3</MonoText></li>
-            </ul>
+          <MaxWidth maxWidth={512}>
+            <List>
+              <li><MonoText small>Python 3</MonoText></li>
+              <li><MonoText small>Mail (SMTP & IMAP communication)</MonoText></li>
+              <li><MonoText small>APERAK generation</MonoText></li>
+              <li>
+                <MonoText small>Developed for<span> </span>
+                  <a href='https://www.svk.se/aktorsportalen/elmarknad/ny-pa-elmarknaden/anvanda-ediel/' target='_blank' rel='noopener noreferrer'>EDIEL</a>
+                </MonoText>
+              </li>
+            </List>
           </MaxWidth>
           <Footer>
-            <WithLove>{'With <3 From Uppsala'}</WithLove>
+            <a href='https://sunlabs.se' target='_blank' rel='noopener noreferrer'>
+              <WithLove>{'With <3 From Uppsala'}</WithLove>
+            </a>
           </Footer>
         </TransitionGroup>
       </MaxWidth>
