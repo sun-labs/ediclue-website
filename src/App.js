@@ -8,7 +8,7 @@ import ediJson from './assets/edi.json'
 
 import './transitions.css'
 
-const GIT_LINK = 'https://github.com/sun-labs/ediclue'
+const GIT_LINK = 'https://github.com/search?q=org%3Asun-labs+topic%3Aediclue'
 
 const AppWrapper = styled.div`
   min-height: 100%;
