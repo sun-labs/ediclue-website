@@ -207,7 +207,7 @@ No guarantees and use on your own risk, but we had it working for a about a year
             </List>
           </MaxWidth>
           <Footer>
-            <CleanLink href='https://sunlabs.se' target='_blank' rel='noopener noreferrer'>
+            <CleanLink href='https://sunlabs.se/?i=ediclue' target='_blank' rel='noopener noreferrer'>
               <BoxedContent>
                 <BGColorText>{'With <3 From Uppsala'}</BGColorText>
               </BoxedContent>
